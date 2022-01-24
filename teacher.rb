@@ -1,6 +1,6 @@
 require "./person.rb"
 
-class Teacher < person
+class Teacher < Person
   def inicialize(name, age, specialization)
     super(name, age, nil)
     @specialization = specialization
