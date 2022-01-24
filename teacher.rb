@@ -1,12 +1,12 @@
 require "./person.rb"
 
 class Teacher < Person
-  def inicialize(name, age, specialization)
-    super(name, age, nil)
+  def initialize(name, age, specialization)
+    super(name, age)
     @specialization = specialization
   end
 
-  def can_use_services
+  def can_use_services?
     true
   end
 end
