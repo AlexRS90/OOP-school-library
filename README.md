@@ -18,6 +18,13 @@
 
 Override <code>can_use_services?</code> method thanks to polymorphism
 
+## Milestone 2:
+
+✅ Created a new class called Corrector <br>
+✅ Added a method to limit the number of characters to 10 and capitalize the first character 🅰️ <br>
+✅ Set a instance of Corrector in Person class on initialization 🤝 <br>
+✅ Added a method called validate_name to update @name using Corrector instance 🆙 <br>
+
 ## Built With
 
 - Ruby
