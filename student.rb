@@ -10,7 +10,3 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 end
-
-janeth = Student.new(23, "Janeth", "CC", parent_permission: true)
-
-p janeth.can_use_services?

@@ -9,7 +9,7 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @check_name = Corrector.new()
+    @check_name = Corrector.new
   end
 
   def validate_name
