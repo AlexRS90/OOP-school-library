@@ -10,6 +10,3 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 end
-
-janeth = Student.new(13, 'Janeth', "CC")
-p janeth.play_hooky
