@@ -1,8 +1,8 @@
 require './corrector'
 
 class Person
-  attr_accessor :name, :age
-  attr_reader :id, :rental
+  attr_accessor :name, :age, :rental
+  attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(1..500)
@@ -19,6 +19,11 @@ class Person
 
   def can_use_services?
     (of_age? || @parent_permission)
+  end
+
+  def add_rentals(rental)
+    rental << rental
+    rental.person = self
   end
 
   private
