@@ -25,6 +25,14 @@ Override <code>can_use_services?</code> method thanks to polymorphism
 ✅ Set a instance of <code>Corrector</code> in <code>Person</code> class on initialization 🤝 <br>
 ✅ Added a method called <code>validate_name</code> to update <code>@name</code> using <code>Corrector</code> instance 🆙 <br>
 
+## Milestone 3:
+
+✅  Created a class <code>Classroom</code> 🧑‍🏫  <br>
+✅  Created the <code>has-many/belongs-to</code> relationship between <code>Classroom</code> and <code>Student</code> ◀️ ▶️ <br>
+✅  Created a class <code>Book</code> 📚  <br>
+✅  Create a class <code>Rental</code> 🧾 <br>
+✅  Create the <code>many-to-many</code> relationship between <code>Person</code> and <code>Book</code> using the intermediate class <code>Rental</code> ⏫  ⏬ <br>
+
 ## Built With
 
 - Ruby
