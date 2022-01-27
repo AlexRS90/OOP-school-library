@@ -21,9 +21,8 @@ class Person
     (of_age? || @parent_permission)
   end
 
-  def add_rentals(rental)
-    rental << rental
-    rental.person = self
+  def add_rentals(date, book)
+    Rental.new(date, self, book)
   end
 
   private
