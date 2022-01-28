@@ -23,7 +23,7 @@ class Library
   def show_people
     puts ''
     puts 'You need to add a person' if @people.empty?
-    @people.each do |person| 
+    @people.each do |person|
       print "#{@people.find_index(person) + 1}) "
       print "[#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}\n"
     end
@@ -117,8 +117,8 @@ class Library
     person_selected = gets.chomp.to_i
     puts 'Rentals: '
     @rentals.each do |rental|
-      puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.title}"
       if rental.person.id == person_selected
+        puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.title}"
       end
     end
     menu
