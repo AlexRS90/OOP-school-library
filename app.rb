@@ -6,14 +6,14 @@ require_relative 'rental'
 
 class Library
   attr_accessor :books, :people, :rentals
-  
+
   def initialize
     @people = []
     @books = []
     @rentals = []
   end
-  
-  def get_all_books
+
+  def show_all_books
     puts ''
     puts 'Empty Library, add a book first' if @books.empty?
     @books.each { |book| puts "#{@books.find_index(book) + 1}) Title: #{book.title}, Author: #{book.author}" }
@@ -23,7 +23,8 @@ class Library
   def show_people
     puts ''
     puts 'You need to add a person' if @people.empty?
-    @people.each { |person| puts "#{@people.find_index(person) + 1}) [#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}"}
+    @people.each { |person| puts "#{@people.find_index(person) + 1}) 
+    [#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}" }
     menu
   end
 
@@ -34,7 +35,7 @@ class Library
     name = gets.chomp
     print 'Has parent permission? [Y/N]: '
     permission = gets.chomp.downcase
-    permission == 'y' ? permission = true : permission = false
+    permission = permission == 'y' ? true : false
     student = Student.new(age, name, @class_room, parent_permission: permission)
     @people << student
     puts "\nStudent created succesfully"
@@ -67,7 +68,7 @@ class Library
       add_new_person
     end
   end
-  
+
   def add_new_book
     print "\nTitle: "
     title = gets.chomp.capitalize
@@ -75,7 +76,7 @@ class Library
     author = gets.chomp.capitalize
     book_name = Book.new(title, author)
     @books << book_name
-    puts "Book created successfully"
+    puts 'Book created successfully'
     menu
   end
 
@@ -88,7 +89,8 @@ class Library
     @books.each { |book| puts "#{@books.find_index(book)}) Title: #{book.title}, Author: #{book.author}" }
     book_selected = gets.chomp.to_i
     puts "\nSelect a person from the list: "
-    @people.each { |person| puts "#{@people.find_index(person)}) [#{person.class}] Name: #{person.name}, Age: #{person.age}"}
+    @people.each { |person| puts "#{@people.find_index(person)}) 
+    [#{person.class}] Name: #{person.name}, Age: #{person.age}" }
     person_selected = gets.chomp.to_i
     puts 'YYYY/MM/DD'
     print 'Add a date in the given format: '
@@ -105,11 +107,13 @@ class Library
       menu
     end
     puts "\nSelect a person by ID from the list: "
-    @people.each { |person| puts "#{@people.find_index(person) + 1}) [#{person.class}] ID: #{person.id} Name: #{person.name}"}
+    @people.each { |person| puts "#{@people.find_index(person) + 1})
+    [#{person.class}] ID: #{person.id} Name: #{person.name}" }
     person_selected = gets.chomp.to_i
     puts 'Rentals: '
     @rentals.each do |rental|
-      puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.title}" if rental.person.id == person_selected
+      puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.title}"
+      if rental.person.id == person_selected
     end
     menu
   end
@@ -117,7 +121,7 @@ class Library
   def option(answer)
     case answer
     when 1
-      get_all_books
+      show_all_books
     when 2
       show_people
     when 3
@@ -128,12 +132,9 @@ class Library
       new_rental
     when 6
       show_rentals
-    when 7
+    else
       puts "\nThanks for your visit, have a great day!"
       abort
-    else
-      puts 'This is not possible'
-      main
     end
   end
 
@@ -141,7 +142,7 @@ class Library
     puts "\nWelcome to School Library App!"
     menu
   end
-    
+
   def menu
     puts "\nPlease choose an option by entering a number:"
     puts '1 - List all books'
