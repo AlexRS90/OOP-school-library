@@ -23,8 +23,8 @@ class Library
   def show_people
     puts ''
     puts 'You need to add a person' if @people.empty?
-    @people.each { |person| puts "#{@people.find_index(person) + 1}) 
-    [#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}" }
+    @people.each { |person| print "#{@people.find_index(person) + 1}) "
+    print "[#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}\n" }
     menu
   end
 
@@ -89,8 +89,8 @@ class Library
     @books.each { |book| puts "#{@books.find_index(book)}) Title: #{book.title}, Author: #{book.author}" }
     book_selected = gets.chomp.to_i
     puts "\nSelect a person from the list: "
-    @people.each { |person| puts "#{@people.find_index(person)}) 
-    [#{person.class}] Name: #{person.name}, Age: #{person.age}" }
+    @people.each { |person| puts "#{@people.find_index(person)}) "
+    print "[#{person.class}] Name: #{person.name}, Age: #{person.age}\n" }
     person_selected = gets.chomp.to_i
     puts 'YYYY/MM/DD'
     print 'Add a date in the given format: '
@@ -107,13 +107,14 @@ class Library
       menu
     end
     puts "\nSelect a person by ID from the list: "
-    @people.each { |person| puts "#{@people.find_index(person) + 1})
-    [#{person.class}] ID: #{person.id} Name: #{person.name}" }
+    @people.each { |person| puts "#{@people.find_index(person) + 1}) "
+    print "[#{person.class}] ID: #{person.id} Name: #{person.name}\n" }
     person_selected = gets.chomp.to_i
     puts 'Rentals: '
     @rentals.each do |rental|
       puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.title}"
       if rental.person.id == person_selected
+      end
     end
     menu
   end
