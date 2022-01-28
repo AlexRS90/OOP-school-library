@@ -33,6 +33,24 @@ Override <code>can_use_services?</code> method thanks to polymorphism
 ✅  Create a class <code>Rental</code> 🧾 <br>
 ✅  Create the <code>many-to-many</code> relationship between <code>Person</code> and <code>Book</code> using the intermediate class <code>Rental</code> ⏫  ⏬ <br>
 
+## Milestone 4:
+
+✅  Created <code>main.rb</code> as entry point to the <code>app.rb</code> 🧑‍💻 <br>
+✅  Added methods to do the following: ⬇️  ⬇️ <br>
+>    ☑️ List all books 📚 <br>
+>    ☑️ List all people 👩  👨 🧑‍🏫  👦 <br>
+>    ☑️ Create a new student or teacher 👨‍🏫  🧒 <br>
+>    ☑️ Create a book. 📖 <br>
+>    ☑️ Create a rental. 🧾 <br>
+>    ☑️ List all rentals for a given person id. 📄 <br>
+
+✅  Added user interaction, he/she is able to do the following: ⬇️  ⬇️ <br>
+
+> ☑️ Present the user with a list of options to perform.<br>
+> ☑️ Lets users choose an option.<br>
+> ☑️ If needed, ask for parameters for the option.<br>
+> ☑️ Have a way to quit the app.<br>
+
 ## Built With
 
 - Ruby
