@@ -23,8 +23,10 @@ class Library
   def show_people
     puts ''
     puts 'You need to add a person' if @people.empty?
-    @people.each { |person| print "#{@people.find_index(person) + 1}) "
-    print "[#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}\n" }
+    @people.each do |person| 
+      print "#{@people.find_index(person) + 1}) "
+      print "[#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}\n"
+    end
     menu
   end
 
@@ -35,8 +37,7 @@ class Library
     name = gets.chomp
     print 'Has parent permission? [Y/N]: '
     permission = gets.chomp.downcase
-    permission = permission == 'y' ? true : false
-    student = Student.new(age, name, @class_room, parent_permission: permission)
+    student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
     @people << student
     puts "\nStudent created succesfully"
     menu
@@ -89,8 +90,10 @@ class Library
     @books.each { |book| puts "#{@books.find_index(book)}) Title: #{book.title}, Author: #{book.author}" }
     book_selected = gets.chomp.to_i
     puts "\nSelect a person from the list: "
-    @people.each { |person| puts "#{@people.find_index(person)}) "
-    print "[#{person.class}] Name: #{person.name}, Age: #{person.age}\n" }
+    @people.each do |person|
+      print "#{@people.find_index(person)}) "
+      print "[#{person.class}] Name: #{person.name}, Age: #{person.age}\n"
+    end
     person_selected = gets.chomp.to_i
     puts 'YYYY/MM/DD'
     print 'Add a date in the given format: '
@@ -107,8 +110,10 @@ class Library
       menu
     end
     puts "\nSelect a person by ID from the list: "
-    @people.each { |person| puts "#{@people.find_index(person) + 1}) "
-    print "[#{person.class}] ID: #{person.id} Name: #{person.name}\n" }
+    @people.each do |person|
+      print "#{@people.find_index(person) + 1}) "
+      print "[#{person.class}] ID: #{person.id} Name: #{person.name}\n"
+    end
     person_selected = gets.chomp.to_i
     puts 'Rentals: '
     @rentals.each do |rental|
