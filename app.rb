@@ -3,10 +3,7 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'person'
 require_relative 'rental'
-
-class Library
-  attr_accessor :books, :people, :rentals
-
+module Library
   def initialize
     @people = []
     @books = []
@@ -17,7 +14,6 @@ class Library
     puts ''
     puts 'Empty Library, add a book first' if @books.empty?
     @books.each { |book| puts "#{@books.find_index(book) + 1}) Title: #{book.title}, Author: #{book.author}" }
-    menu
   end
 
   def show_people
@@ -27,20 +23,21 @@ class Library
       print "#{@people.find_index(person) + 1}) "
       print "[#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}\n"
     end
-    menu
   end
 
   def add_student
     print "\nAge: "
     age = gets.chomp.to_i
+
     print 'Name: '
     name = gets.chomp
+
     print 'Has parent permission? [Y/N]: '
     permission = gets.chomp.downcase
+
     student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
     @people << student
     puts "\nStudent created succesfully"
-    menu
   end
 
   def add_teacher
@@ -53,12 +50,12 @@ class Library
     teacher = Teacher.new(age, name, specialization)
     @people << teacher
     puts "\nTeacher created succesfully"
-    menu
   end
 
   def add_new_person
     print "\nDo you want to create a student (1) or a teacher (2)? [Input the number]: "
     person = gets.chomp.to_i
+    
     case person
     when 1
       add_student
@@ -78,13 +75,12 @@ class Library
     book_name = Book.new(title, author)
     @books << book_name
     puts 'Book created successfully'
-    menu
   end
 
   def new_rental
     if @people.empty? || @books.empty?
       puts 'Add a book or person before continue, thank you!'
-      menu
+
     end
     puts "\nSelect a book from the list: "
     @books.each { |book| puts "#{@books.find_index(book)}) Title: #{book.title}, Author: #{book.author}" }
@@ -101,13 +97,12 @@ class Library
     rental = Rental.new(date, @people[person_selected], @books[book_selected])
     @rentals << rental
     puts "\nRental created successfully\nEnjoy your book =D"
-    menu
   end
 
   def show_rentals
     if @rentals.empty?
       puts "\nAdd a new rental before continue =D"
-      menu
+
     end
     puts "\nSelect a person by ID from the list: "
     @people.each do |person|
@@ -121,44 +116,5 @@ class Library
         puts "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.title}"
       end
     end
-    menu
-  end
-
-  def option(answer)
-    case answer
-    when 1
-      show_all_books
-    when 2
-      show_people
-    when 3
-      add_new_person
-    when 4
-      add_new_book
-    when 5
-      new_rental
-    when 6
-      show_rentals
-    else
-      puts "\nThanks for your visit, have a great day!"
-      abort
-    end
-  end
-
-  def welcome
-    puts "\nWelcome to School Library App!"
-    menu
-  end
-
-  def menu
-    puts "\nPlease choose an option by entering a number:"
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person ID'
-    puts '7 - Exit'
-    answer = gets.chomp.to_i
-    option(answer)
   end
 end
