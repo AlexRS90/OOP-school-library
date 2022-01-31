@@ -22,14 +22,17 @@ class App
     when 1
       @showBooks.show
     when 2
+      #
       show_people
     when 3
       @addPerson.add
     when 4
       @addBooks.add
     when 5
+      #
       new_rental
     when 6
+      #
       show_rentals
     else
       puts "\nThanks for your visit, have a great day!"
