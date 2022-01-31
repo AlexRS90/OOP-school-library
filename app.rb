@@ -1,4 +1,4 @@
-require_relative 'book'
+# require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'person'
@@ -10,11 +10,11 @@ module Library
     @rentals = []
   end
 
-  def show_all_books
-    puts ''
-    puts 'Empty Library, add a book first' if @books.empty?
-    @books.each { |book| puts "#{@books.find_index(book) + 1}) Title: #{book.title}, Author: #{book.author}" }
-  end
+  # def show_all_books
+  #   puts ''
+  #   puts 'Empty Library, add a book first' if @books.empty?
+  #   @books.each { |book| puts "#{@books.find_index(book) + 1}) Title: #{book.title}, Author: #{book.author}" }
+  # end
 
   def show_people
     puts ''
@@ -25,57 +25,57 @@ module Library
     end
   end
 
-  def add_student
-    print "\nAge: "
-    age = gets.chomp.to_i
+  # def add_student
+  #   print "\nAge: "
+  #   age = gets.chomp.to_i
 
-    print 'Name: '
-    name = gets.chomp
+  #   print 'Name: '
+  #   name = gets.chomp
 
-    print 'Has parent permission? [Y/N]: '
-    permission = gets.chomp.downcase
+  #   print 'Has parent permission? [Y/N]: '
+  #   permission = gets.chomp.downcase
 
-    student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
-    @people << student
-    puts "\nStudent created succesfully"
-  end
+  #   student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
+  #   @people << student
+  #   puts "\nStudent created succesfully"
+  # end
 
-  def add_teacher
-    print "\nAge: "
-    age = gets.chomp.to_i
-    print 'Name: '
-    name = gets.chomp
-    print 'Specialization: '
-    specialization = gets.chomp
-    teacher = Teacher.new(age, name, specialization)
-    @people << teacher
-    puts "\nTeacher created succesfully"
-  end
+  # def add_teacher
+  #   print "\nAge: "
+  #   age = gets.chomp.to_i
+  #   print 'Name: '
+  #   name = gets.chomp
+  #   print 'Specialization: '
+  #   specialization = gets.chomp
+  #   teacher = Teacher.new(age, name, specialization)
+  #   @people << teacher
+  #   puts "\nTeacher created succesfully"
+  # end
 
-  def add_new_person
-    print "\nDo you want to create a student (1) or a teacher (2)? [Input the number]: "
-    person = gets.chomp.to_i
+  # def add_new_person
+  #   print "\nDo you want to create a student (1) or a teacher (2)? [Input the number]: "
+  #   person = gets.chomp.to_i
     
-    case person
-    when 1
-      add_student
-    when 2
-      add_teacher
-    else
-      puts 'Enter a valid option, 1 - Student, 2 - Teacher'
-      add_new_person
-    end
-  end
+  #   case person
+  #   when 1
+  #     add_student
+  #   when 2
+  #     add_teacher
+  #   else
+  #     puts 'Enter a valid option, 1 - Student, 2 - Teacher'
+  #     add_new_person
+  #   end
+  # end
 
-  def add_new_book
-    print "\nTitle: "
-    title = gets.chomp.capitalize
-    print 'Author: '
-    author = gets.chomp.capitalize
-    book_name = Book.new(title, author)
-    @books << book_name
-    puts 'Book created successfully'
-  end
+  # def add_new_book
+  #   print "\nTitle: "
+  #   title = gets.chomp.capitalize
+  #   print 'Author: '
+  #   author = gets.chomp.capitalize
+  #   book_name = Book.new(title, author)
+  #   @books << book_name
+  #   puts 'Book created successfully'
+  # end
 
   def new_rental
     if @people.empty? || @books.empty?

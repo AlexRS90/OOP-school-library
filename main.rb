@@ -1,30 +1,33 @@
 #!/usr/bin/env ruby
 require_relative 'app'
+require './methods/showBooks.rb'
+require './methods/addBooks.rb'
+require './methods/addPerson.rb'
 class App 
   include Library
+
   def welcome
     puts "\nWelcome to School Library App!"
-    loop do
-      menu
-
-      answer = gets.chomp
-
-      break if answer == '7'
-
-      option answer
-    end
+    $books = []
+    $people = []
+    $rentals = []
+    @showBooks = ShowBooks.new
+    @addBooks = AddBooks.new
+    @addPerson = AddPerson.new
+    menu
   end
 
   def option(answer)
     case answer
     when 1
-      show_all_books
+      @showBooks.show
     when 2
       show_people
     when 3
-      add_new_person
+      @addPerson.add
+      # add_new_person
     when 4
-      add_new_book
+      @addBooks.add
     when 5
       new_rental
     when 6
@@ -51,8 +54,8 @@ end
 
 
 def main
-  app = App.new
-  app.welcome
+  $app = App.new
+  $app.welcome
 end
 
 main
