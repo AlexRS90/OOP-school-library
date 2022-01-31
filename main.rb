@@ -25,7 +25,6 @@ class App
       show_people
     when 3
       @addPerson.add
-      # add_new_person
     when 4
       @addBooks.add
     when 5
