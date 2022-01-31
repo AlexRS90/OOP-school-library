@@ -3,6 +3,7 @@ require_relative 'app'
 require './methods/showBooks.rb'
 require './methods/addBooks.rb'
 require './methods/addPerson.rb'
+require './methods/showPeople'
 class App 
   include Library
 
@@ -14,6 +15,7 @@ class App
     @showBooks = ShowBooks.new
     @addBooks = AddBooks.new
     @addPerson = AddPerson.new
+    @showPeople = Show_people.new
     menu
   end
 
@@ -22,8 +24,7 @@ class App
     when 1
       @showBooks.show
     when 2
-      #
-      show_people
+      @showPeople.show
     when 3
       @addPerson.add
     when 4
