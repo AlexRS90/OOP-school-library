@@ -4,7 +4,7 @@ require_relative './people_memory'
 class AddStudent
   include PeopleMemory
 
-  def add
+  def student_details
     print "\nAge: "
     age = gets.chomp.to_i
 
@@ -13,7 +13,11 @@ class AddStudent
 
     print 'Has parent permission? [Y/N]: '
     permission = gets.chomp.downcase
+    [age, name, permission]
+  end
 
+  def add
+    age, name, permission = student_details
     student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
     add_person(student)
     puts "\nStudent created succesfully"
