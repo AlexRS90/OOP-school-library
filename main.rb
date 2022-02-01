@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 require_relative 'app'
-require './methods/showBooks.rb'
-require './methods/addBooks.rb'
-require './methods/addPerson.rb'
+require './methods/showBooks'
+require './methods/addBooks'
+require './methods/addPerson'
 require './methods/showPeople'
+require './methods/newRental'
+require './methods/showRentals'
 class App 
   include Library
 
@@ -16,6 +18,8 @@ class App
     @addBooks = AddBooks.new
     @addPerson = AddPerson.new
     @showPeople = Show_people.new
+    @addRental = Add_rental.new
+    @showRentals = Display_rentals.new
     menu
   end
 
@@ -30,11 +34,9 @@ class App
     when 4
       @addBooks.add
     when 5
-      #
-      new_rental
+      @addRental.add
     when 6
-      #
-      show_rentals
+      @showRentals.show
     else
       puts "\nThanks for your visit, have a great day!"
       abort
