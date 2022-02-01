@@ -2,7 +2,7 @@ require_relative '../book'
 require_relative './books_memory'
 
 class AddBooks
-  include BooksMemory
+  extend BooksMemory
 
   def add
     print "\nTitle: "

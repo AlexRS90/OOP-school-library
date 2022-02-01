@@ -5,8 +5,14 @@ require_relative './methods/add_person'
 require_relative './methods/show_people'
 require_relative './methods/new_rental'
 require_relative './methods/show_rentals'
+require_relative './methods/books_memory'
+require_relative './methods/people_memory'
+require_relative './methods/rentals_memory'
 
 class App
+  include BooksMemory
+  include PeopleMemory
+  include RentalsMemory
 
   def welcome
     puts "\nWelcome to School Library App!"

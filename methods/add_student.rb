@@ -15,7 +15,7 @@ class AddStudent
     permission = gets.chomp.downcase
 
     student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
-    addPerson(student)
+    add_person(student)
     puts "\nStudent created succesfully"
   end
 end

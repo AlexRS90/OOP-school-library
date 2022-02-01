@@ -12,7 +12,7 @@ class AddTeacher
     print 'Specialization: '
     specialization = gets.chomp
     teacher = Teacher.new(age, name, specialization)
-    addPerson(teacher)
+    add_person(teacher)
 
     puts "\nTeacher created succesfully"
   end

@@ -30,7 +30,7 @@ class AddRental
       print 'Add a date in the given format: '
       date = gets.chomp
       rental = Rental.new(date, @people[person_selected], @books[book_selected])
-      addRental(rental)
+      add_rental(rental)
       puts "\nRental created successfully\nEnjoy your book =D"
     end
   end
