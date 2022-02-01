@@ -1,6 +1,9 @@
 require_relative '../teacher.rb'
+require_relative './people_memory.rb'
 
 class AddTeacher
+    include PeopleMemory
+
     def add 
         print "\nAge: "
         age = gets.chomp.to_i
@@ -9,7 +12,8 @@ class AddTeacher
         print 'Specialization: '
         specialization = gets.chomp
         teacher = Teacher.new(age, name, specialization)
-        $people << teacher
+        addPerson(teacher)
+
         puts "\nTeacher created succesfully"
         $app.menu
     end

@@ -1,6 +1,9 @@
 require_relative '../student.rb'
+require_relative './people_memory.rb'
 
 class AddStudent
+    include PeopleMemory
+
     def add
         print "\nAge: "
         age = gets.chomp.to_i
@@ -12,7 +15,7 @@ class AddStudent
         permission = gets.chomp.downcase
     
         student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
-        $people << student
+        addPerson(student)
         puts "\nStudent created succesfully"
         $app.menu
     end
