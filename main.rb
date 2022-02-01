@@ -1,42 +1,38 @@
 #!/usr/bin/env ruby
-require_relative 'app'
-require './methods/showBooks'
-require './methods/addBooks'
-require './methods/addPerson'
-require './methods/showPeople'
-require './methods/newRental'
-require './methods/showRentals'
+require_relative './methods/show_books'
+require_relative './methods/add_books'
+require_relative './methods/add_person'
+require_relative './methods/show_people'
+require_relative './methods/new_rental'
+require_relative './methods/show_rentals'
+
 class App
-  include Library
 
   def welcome
     puts "\nWelcome to School Library App!"
-    $books = []
-    $people = []
-    $rentals = []
-    @showBooks = ShowBooks.new
-    @addBooks = AddBooks.new
-    @addPerson = AddPerson.new
-    @showPeople = Show_people.new
-    @addRental = Add_rental.new
-    @showRentals = Display_rentals.new
+    @show_books = ShowBooks.new
+    @add_books = AddBooks.new
+    @add_person = AddPerson.new
+    @show_people = ShowPeople.new
+    @add_rental = AddRental.new
+    @show_rentals = DisplayRentals.new
     menu
   end
 
   def option(answer)
     case answer
     when 1
-      @showBooks.show
+      @show_books.show
     when 2
-      @showPeople.show
+      @show_people.show
     when 3
-      @addPerson.add
+      @add_person.add
     when 4
-      @addBooks.add
+      @add_books.add
     when 5
-      @addRental.add
+      @add_rental.add
     when 6
-      @showRentals.show
+      @show_rentals.show
     else
       puts "\nThanks for your visit, have a great day!"
       abort

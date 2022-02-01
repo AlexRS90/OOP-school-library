@@ -1,13 +1,13 @@
 require_relative './rentals_memory'
 require_relative './people_memory'
 
-class Display_rentals
+class DisplayRentals
   include RentalsMemory
   include PeopleMemory
 
   def initialize
-    @people = getPeople
-    @rentals = getRentals
+    @people = show_people
+    @rentals = show_rentals
   end
 
   def show

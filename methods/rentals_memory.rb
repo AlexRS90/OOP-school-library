@@ -1,11 +1,11 @@
 module RentalsMemory
-  @@rentals = []
+  @rentals = []
 
-  def addRental(newRental)
-    @@rentals.push(newRental)
+  def add_rental(new_rental)
+    @rentals.push(new_rental)
   end
 
-  def getRentals
-    @@rentals
+  def show_rentals
+    @rentals
   end
 end

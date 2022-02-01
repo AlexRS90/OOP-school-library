@@ -3,14 +3,14 @@ require_relative './rentals_memory'
 require_relative './books_memory'
 require_relative './people_memory'
 
-class Add_rental
+class AddRental
   include RentalsMemory
   include BooksMemory
   include PeopleMemory
 
   def initialize
-    @books = getBooks
-    @people = getPeople
+    @books = show_books
+    @people = show_people
   end
 
   def add

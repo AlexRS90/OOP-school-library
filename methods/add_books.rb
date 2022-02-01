@@ -10,7 +10,7 @@ class AddBooks
     print 'Author: '
     author = gets.chomp.capitalize
     book_name = Book.new(title, author)
-    addBooks(book_name)
+    add_books(book_name)
     puts 'Book created successfully'
   end
 end

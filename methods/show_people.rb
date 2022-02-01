@@ -1,10 +1,10 @@
 require_relative './people_memory'
 
-class Show_people
+class ShowPeople
   include PeopleMemory
 
   def initialize
-    @people = getPeople
+    @people = show_people
   end
 
   def show

@@ -1,11 +1,11 @@
 module BooksMemory
-  @@books = []
+  @books = []
 
-  def addBooks(newBook)
-    @@books.push(newBook)
+  def add_books(new_book)
+    @books << new_book
   end
 
-  def getBooks
-    @@books
+  def show_books
+    @books
   end
 end

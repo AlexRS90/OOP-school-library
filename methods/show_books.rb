@@ -4,7 +4,7 @@ class ShowBooks
   include BooksMemory
 
   def initialize
-    @books = getBooks
+    @books = show_books
   end
 
   def show

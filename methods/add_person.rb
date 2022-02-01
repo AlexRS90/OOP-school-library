@@ -1,10 +1,10 @@
-require_relative './addStudent'
-require_relative './addTeacher'
+require_relative './add_student'
+require_relative './add_teacher'
 
 class AddPerson
   def initialize
-    @addStudent = AddStudent.new
-    @addTeacher = AddTeacher.new
+    @add_student = AddStudent.new
+    @add_teacher = AddTeacher.new
   end
 
   def add
@@ -13,9 +13,9 @@ class AddPerson
 
     case person
     when 1
-      @addStudent.add
+      @add_student.add
     when 2
-      @addTeacher.add
+      @add_teacher.add
     else
       puts 'Enter a valid option, 1 - Student, 2 - Teacher'
       add
