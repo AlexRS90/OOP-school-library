@@ -17,6 +17,5 @@ class AddStudent
         student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
         addPerson(student)
         puts "\nStudent created succesfully"
-        $app.menu
     end
   end

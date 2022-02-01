@@ -15,6 +15,5 @@ class AddTeacher
         addPerson(teacher)
 
         puts "\nTeacher created succesfully"
-        $app.menu
     end
 end

@@ -12,7 +12,6 @@ class AddBooks
     book_name = Book.new(title, author)
     addBooks(book_name)
     puts 'Book created successfully'
-    $app.menu
     end
 
 

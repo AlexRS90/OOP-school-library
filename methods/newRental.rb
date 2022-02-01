@@ -33,6 +33,5 @@ class Add_rental
       addRental(rental)
       puts "\nRental created successfully\nEnjoy your book =D"
     end
-    $app.menu
   end
 end

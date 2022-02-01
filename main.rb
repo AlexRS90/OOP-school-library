@@ -54,13 +54,14 @@ class App
     puts '7 - Exit'
     answer = gets.chomp.to_i
     option(answer)
+    self.menu
   end
 end
 
 
 def main
-  $app = App.new
-  $app.welcome
+  app = App.new
+  app.welcome
 end
 
 main

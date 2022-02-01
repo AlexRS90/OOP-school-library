@@ -28,6 +28,5 @@ class Display_rentals
         end
       end
     end
-    $app.menu
   end
 end
