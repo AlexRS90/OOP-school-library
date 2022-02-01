@@ -16,7 +16,7 @@ class DisplayRentals
       print "#{@people.find_index(person) + 1}) "
       print "[#{person.class}] ID: #{person.id} Name: #{person.name}\n"
     end
-    person_selected = gets.chomp.to_i
+    gets.chomp.to_i
   end
 
   def show
