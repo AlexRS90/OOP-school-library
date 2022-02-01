@@ -1,4 +1,4 @@
-require_relative './books_memory'
+require_relative '../memory/books_memory'
 
 class ShowBooks
   include BooksMemory

@@ -5,23 +5,28 @@ require_relative './methods/add_person'
 require_relative './methods/show_people'
 require_relative './methods/new_rental'
 require_relative './methods/show_rentals'
-require_relative './methods/books_memory'
-require_relative './methods/people_memory'
-require_relative './methods/rentals_memory'
+# Json library
+require 'json'
+#Load memory
+require_relative './memory/load_data'
+
+
 
 class App
-  include BooksMemory
-  include PeopleMemory
-  include RentalsMemory
+  include LoadData
 
   def welcome
     puts "\nWelcome to School Library App!"
+    load_books
     @show_books = ShowBooks.new
     @add_books = AddBooks.new
     @add_person = AddPerson.new
     @show_people = ShowPeople.new
     @add_rental = AddRental.new
     @show_rentals = DisplayRentals.new
+    @people = show_people
+    @rentals = show_rentals
+    @books = show_books
     menu
   end
 
@@ -40,6 +45,7 @@ class App
     when 6
       @show_rentals.show
     else
+      saveBooks
       puts "\nThanks for your visit, have a great day!"
       abort
     end
@@ -57,6 +63,14 @@ class App
     answer = gets.chomp.to_i
     option(answer)
     menu
+  end
+
+  def saveBooks
+    @array = []
+    if !@books.empty?
+      @books.each { |book| @array.push({title: book.title, author: book.author}) }
+      File.write('./json/books.json', JSON.dump(@array))
+    end
   end
 end
 

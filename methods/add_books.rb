@@ -1,5 +1,5 @@
 require_relative '../book'
-require_relative './books_memory'
+require_relative '../memory/books_memory.rb'
 
 class AddBooks
   include BooksMemory

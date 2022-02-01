@@ -1,5 +1,5 @@
 require_relative '../student'
-require_relative './people_memory'
+require_relative '../memory/people_memory'
 
 class AddStudent
   include PeopleMemory
