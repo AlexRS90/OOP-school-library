@@ -1,11 +1,13 @@
+# rubocop:disable Style/ClassVars
 module BooksMemory
-  @books = []
+  @@books = []
 
   def add_books(new_book)
-    @books << new_book
+    @@books << new_book
   end
 
   def show_books
-    @books
+    @@books
   end
 end
+# rubocop:enable Style/ClassVars
