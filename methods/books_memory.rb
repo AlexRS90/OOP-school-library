@@ -1,13 +1,11 @@
-module BooksMemory 
+module BooksMemory
+  @@books = []
 
-@@books = []
+  def addBooks(newBook)
+    @@books.push(newBook)
+  end
 
-def addBooks(newBook)
-@@books.push(newBook)
-end
-
-def getBooks
-@@books
-end
-
+  def getBooks
+    @@books
+  end
 end

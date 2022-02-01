@@ -1,13 +1,11 @@
-module PeopleMemory 
+module PeopleMemory
+  @@people = []
 
-    @@people = []
-    
-    def addPerson(newPerson)
+  def addPerson(newPerson)
     @@people.push(newPerson)
-    end
-    
-    def getPeople
+  end
+
+  def getPeople
     @@people
-    end
-    
+  end
 end

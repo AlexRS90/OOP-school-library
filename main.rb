@@ -6,7 +6,7 @@ require './methods/addPerson'
 require './methods/showPeople'
 require './methods/newRental'
 require './methods/showRentals'
-class App 
+class App
   include Library
 
   def welcome
@@ -54,10 +54,9 @@ class App
     puts '7 - Exit'
     answer = gets.chomp.to_i
     option(answer)
-    self.menu
+    menu
   end
 end
-
 
 def main
   app = App.new

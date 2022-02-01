@@ -1,12 +1,12 @@
-require_relative './people_memory.rb'
+require_relative './people_memory'
 
 class Show_people
   include PeopleMemory
 
   def initialize
-  @people = getPeople()
+    @people = getPeople
   end
-  
+
   def show
     puts ''
     puts 'You need to add a person' if @people.empty?

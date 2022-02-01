@@ -1,7 +1,7 @@
 require_relative '../rental'
-require_relative './rentals_memory.rb'
-require_relative './books_memory.rb'
-require_relative './people_memory.rb'
+require_relative './rentals_memory'
+require_relative './books_memory'
+require_relative './people_memory'
 
 class Add_rental
   include RentalsMemory
@@ -9,9 +9,9 @@ class Add_rental
   include PeopleMemory
 
   def initialize
-    @books = getBooks()
-    @people = getPeople()
-    end
+    @books = getBooks
+    @people = getPeople
+  end
 
   def add
     if @people.empty? || @books.empty?

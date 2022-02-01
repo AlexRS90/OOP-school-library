@@ -1,10 +1,10 @@
 require_relative '../book'
-require_relative './books_memory.rb'
+require_relative './books_memory'
 
 class AddBooks
-    include BooksMemory
+  include BooksMemory
 
-    def add
+  def add
     print "\nTitle: "
     title = gets.chomp.capitalize
     print 'Author: '
@@ -12,7 +12,5 @@ class AddBooks
     book_name = Book.new(title, author)
     addBooks(book_name)
     puts 'Book created successfully'
-    end
-
-
-end 
+  end
+end

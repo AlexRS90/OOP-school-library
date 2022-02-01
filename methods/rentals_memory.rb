@@ -1,13 +1,11 @@
-module RentalsMemory 
+module RentalsMemory
+  @@rentals = []
 
-    @@rentals = []
-    
-    def addRental(newRental)
+  def addRental(newRental)
     @@rentals.push(newRental)
-    end
-    
-    def getRentals
+  end
+
+  def getRentals
     @@rentals
-    end
-    
+  end
 end

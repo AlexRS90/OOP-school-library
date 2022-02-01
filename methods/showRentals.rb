@@ -1,15 +1,14 @@
-require_relative './rentals_memory.rb'
-require_relative './people_memory.rb'
-
+require_relative './rentals_memory'
+require_relative './people_memory'
 
 class Display_rentals
   include RentalsMemory
   include PeopleMemory
 
   def initialize
-    @people = getPeople()
-    @rentals = getRentals()
-    end
+    @people = getPeople
+    @rentals = getRentals
+  end
 
   def show
     if @rentals.empty?
