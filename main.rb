@@ -10,8 +10,6 @@ require 'json'
 #Load memory
 require_relative './memory/load_data'
 
-
-
 class App
   include LoadData
 
@@ -46,6 +44,7 @@ class App
       @show_rentals.show
     else
       saveBooks
+      savePeople
       puts "\nThanks for your visit, have a great day!"
       abort
     end
@@ -66,10 +65,19 @@ class App
   end
 
   def saveBooks
-    @array = []
+    array = []
     if !@books.empty?
-      @books.each { |book| @array.push({title: book.title, author: book.author}) }
-      File.write('./json/books.json', JSON.dump(@array))
+      @books.each { |book| array.push({title: book.title, author: book.author}) }
+      File.write('./json/books.json', JSON.dump(array))
+    end
+  end
+
+  def savePeople
+    array = []
+    if !@people.empty?
+      @people.each{ |person| puts person.parent_permission } 
+      File.write('./json/people.json', JSON.dump(array))
+      #array.push({type: person.class, id: person.id, name: person.name, age: person.age})
     end
   end
 end
