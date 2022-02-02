@@ -18,7 +18,7 @@ class AddStudent
 
   def add
     age, name, permission = student_details
-    student = Student.new(age, name, @class_room, parent_permission: permission == 'y')
+    student = Student.new(age, @id, name, @class_room, parent_permission: permission == 'y')
     add_person(student)
     puts "\nStudent created succesfully"
   end
