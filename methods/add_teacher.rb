@@ -16,7 +16,7 @@ class AddTeacher
 
   def add
     age, name, specialization = teacher_details
-    teacher = Teacher.new(age, name, specialization)
+    teacher = Teacher.new(age, @id, name, specialization)
     add_person(teacher)
 
     puts "\nTeacher created succesfully"
