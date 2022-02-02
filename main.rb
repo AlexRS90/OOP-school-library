@@ -17,6 +17,7 @@ class App
   def welcome
     puts "\nWelcome to School Library App!"
     load_books
+    load_people
     @show_books = ShowBooks.new
     @add_books = AddBooks.new
     @add_person = AddPerson.new
