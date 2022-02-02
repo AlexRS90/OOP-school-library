@@ -9,6 +9,7 @@ require_relative './methods/show_rentals'
 require 'json'
 #Load memory
 require_relative './memory/load_data'
+require 'pry'
 
 class App
   include LoadData
@@ -75,9 +76,10 @@ class App
   def savePeople
     array = []
     if !@people.empty?
-      @people.each{ |person| puts person.parent_permission } 
-      File.write('./json/people.json', JSON.dump(array))
+      @people.each{ |person| binding.pry } 
+      # File.write('./json/people.json', JSON.dump(array))
       #array.push({type: person.class, id: person.id, name: person.name, age: person.age})
+      
     end
   end
 end

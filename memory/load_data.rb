@@ -23,17 +23,17 @@ module LoadData
     end
   end
 
-  def load_people
-    if File.file?('./json/people.json')
-      file = File.read('./json/people.json')
-      data_hash = JSON.parse(file)
-      data_hash.each do |data|
-        if data.type == 'Student'
-          person = Student.new(data["age"], data["name"], @class_room)
-        end
-      end
-    end
-  end
+#   def load_people
+#     if File.file?('./json/people.json')
+#       file = File.read('./json/people.json')
+#       data_hash = JSON.parse(file)
+#       data_hash.each do |data|
+#         if data.type == 'Student'
+#           person = Student.new(data["age"], data["name"], @class_room)
+#         end
+#       end
+#     end
+#   end
 #[#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}
 
 
