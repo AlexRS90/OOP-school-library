@@ -1,11 +1,15 @@
 require './corrector'
 
 class Person
-  attr_accessor :name, :age, :rental
-  attr_reader :id
+  attr_accessor :name, :age, :rental, :id
+  # attr_reader :id
 
-  def initialize(age, _id = 0, name = 'Unknown')
+  def initialize(age, _id = nil , name = 'Unknown')
+    if _id == nil
     @id = Random.rand(1..500)
+    else 
+    @id = _id
+    end
     @name = name
     @age = age
     @check_name = Corrector.new
