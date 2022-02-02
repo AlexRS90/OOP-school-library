@@ -6,7 +6,7 @@ describe Corrector do
   end
 
   it 'Instance of class?' do
-    expect(@corrector).to be_instance_of Correcto
+    expect(@corrector).to be_instance_of Corrector
   end
 
   it 'Correct a name?' do
