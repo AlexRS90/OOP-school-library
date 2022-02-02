@@ -6,6 +6,7 @@ require_relative './rentals_memory'
 require_relative '../book'
 require_relative '../student'
 require_relative '../teacher'
+require_relative '../person'
 
 module LoadData
   include BooksMemory
@@ -23,16 +24,20 @@ module LoadData
     end
   end
 
-  #   def load_people
-  #     if File.file?('./json/people.json')
-  #       file = File.read('./json/people.json')
-  #       data_hash = JSON.parse(file)
-  #       data_hash.each do |data|
-  #         if data.type == 'Student'
-  #           person = Student.new(data["age"], data["name"], @class_room)
-  #         end
-  #       end
-  #     end
-  #   end
-  # [#{person.class}] ID: #{person.id} Name: #{person.name}, Age: #{person.age}
+  def load_people
+    return unless File.file?('./json/people.json')
+
+    file = File.read('./json/people.json')
+    data_hash = JSON.parse(file)
+    data_hash.each do |data|
+      if data['type'] == 'Student'
+        data['parent_permission']
+        person = Student.new(data['age'], data['id'], data['name'], data['parent_permission'])
+        add_person(person)
+      else
+        person = Teacher.new(data['age'], data['id'], data['name'], data['specialization'])
+        add_person(person)
+      end
+    end
+  end
 end
