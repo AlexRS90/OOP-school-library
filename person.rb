@@ -5,7 +5,7 @@ class Person
   attr_reader :id
 
   def initialize(age, _id = 0, name = 'Unknown')
-    _id == 0 ? @id = Random.rand(1..500) : @id = _id
+    @id = Random.rand(1..500)
     @name = name
     @age = age
     @check_name = Corrector.new

@@ -18,6 +18,7 @@ class App
     puts "\nWelcome to School Library App!"
     load_books
     load_people
+    load_rentals
     @show_books = ShowBooks.new
     @add_books = AddBooks.new
     @add_person = AddPerson.new
@@ -84,7 +85,7 @@ class App
         array.push({ type: person.class, object_id: person, id: person.id, name: person.name, age: person.age,
                      specialization: person.specialization })
       else
-        array.push({ type: person.class, id: person.id, name: person.name, age: person.age,
+        array.push({ type: person.class, object_id: person, id: person.id, name: person.name, age: person.age,
                      parent_permission: person.parent_permission })
       end
     end
@@ -100,7 +101,6 @@ class App
     end
     File.write('./json/rentals.json', JSON.dump(array))
   end
-
 end
 
 def main

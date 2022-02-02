@@ -1,13 +1,1 @@
-[{
-    "date":"2020/12/12"
-    ,"person":"#<Student:0x00007ff854a9caf0>",
-    "book":"#<Book:0x00007ff854a9dcc0>"
-},{
-    "date":"2021/02/01",
-    "person":"#<Student:0x00007ff854a9c8c0>"
-    ,"book":"#<Book:0x00007ff854a9dbf8>"
-},{
-    "date":"2021/01/22",
-    "person":"#<Student:0x00007ff854a9caf0>",
-    "book":"#<Book:0x00007ff854a9dba8>"
-}]
+[{"date":"2020/12/12","person":"#<Student:0x0000023ddb41f8a0>","book":"#<Book:0x0000023ddb424210>"},{"date":"2010","person":"#<Teacher:0x0000023ddb41f350>","book":"#<Book:0x0000023ddb41ff58>"}]
