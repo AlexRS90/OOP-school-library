@@ -1,0 +1,13 @@
+[{
+    "date":"2020/12/12"
+    ,"person":"#<Student:0x00007ff854a9caf0>",
+    "book":"#<Book:0x00007ff854a9dcc0>"
+},{
+    "date":"2021/02/01",
+    "person":"#<Student:0x00007ff854a9c8c0>"
+    ,"book":"#<Book:0x00007ff854a9dbf8>"
+},{
+    "date":"2021/01/22",
+    "person":"#<Student:0x00007ff854a9caf0>",
+    "book":"#<Book:0x00007ff854a9dba8>"
+}]

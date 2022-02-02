@@ -47,6 +47,7 @@ class App
     else
       save_books
       save_people
+      save_rentals
       puts "\nThanks for your visit, have a great day!"
       abort
     end
@@ -70,7 +71,7 @@ class App
     array = []
     return if @books.empty?
 
-    @books.each { |book| array.push({ title: book.title, author: book.author }) }
+    @books.each { |book| array.push({ object_id: book, title: book.title, author: book.author }) }
     File.write('./json/books.json', JSON.dump(array))
   end
 
@@ -80,7 +81,7 @@ class App
 
     @people.each do |person|
       if person.respond_to?(:specialization)
-        array.push({ type: person.class, id: person.id, name: person.name, age: person.age,
+        array.push({ type: person.class, object_id: person, id: person.id, name: person.name, age: person.age,
                      specialization: person.specialization })
       else
         array.push({ type: person.class, id: person.id, name: person.name, age: person.age,
@@ -89,6 +90,17 @@ class App
     end
     File.write('./json/people.json', JSON.dump(array))
   end
+
+  def save_rentals
+    array = []
+    return if @rentals.empty?
+
+    @rentals.each do |add|
+      array.push({ date: add.date, person: add.person, book: add.book })
+    end
+    File.write('./json/rentals.json', JSON.dump(array))
+  end
+
 end
 
 def main
