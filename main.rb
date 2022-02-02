@@ -9,7 +9,6 @@ require_relative './methods/show_rentals'
 require 'json'
 # Load memory
 require_relative './memory/load_data'
-require 'pry'
 
 class App
   include LoadData
