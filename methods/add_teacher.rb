@@ -1,5 +1,5 @@
 require_relative '../teacher'
-require_relative './people_memory'
+require_relative '../memory/people_memory'
 
 class AddTeacher
   include PeopleMemory
@@ -16,7 +16,7 @@ class AddTeacher
 
   def add
     age, name, specialization = teacher_details
-    teacher = Teacher.new(age, name, specialization)
+    teacher = Teacher.new(age, @id, name, specialization)
     add_person(teacher)
 
     puts "\nTeacher created succesfully"

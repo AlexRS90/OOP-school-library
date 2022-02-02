@@ -5,23 +5,28 @@ require_relative './methods/add_person'
 require_relative './methods/show_people'
 require_relative './methods/new_rental'
 require_relative './methods/show_rentals'
-require_relative './methods/books_memory'
-require_relative './methods/people_memory'
-require_relative './methods/rentals_memory'
+# Json library
+require 'json'
+# Load memory
+require_relative './memory/load_data'
 
 class App
-  include BooksMemory
-  include PeopleMemory
-  include RentalsMemory
+  include LoadData
 
   def welcome
     puts "\nWelcome to School Library App!"
+    load_books
+    load_people
+    load_rentals
     @show_books = ShowBooks.new
     @add_books = AddBooks.new
     @add_person = AddPerson.new
     @show_people = ShowPeople.new
     @add_rental = AddRental.new
     @show_rentals = DisplayRentals.new
+    @people = show_people
+    @rentals = show_rentals
+    @books = show_books
     menu
   end
 
@@ -40,6 +45,9 @@ class App
     when 6
       @show_rentals.show
     else
+      save_books
+      save_people
+      save_rentals
       puts "\nThanks for your visit, have a great day!"
       abort
     end
@@ -57,6 +65,40 @@ class App
     answer = gets.chomp.to_i
     option(answer)
     menu
+  end
+
+  def save_books
+    array = []
+    return if @books.empty?
+
+    @books.each { |book| array.push({ object_id: book, title: book.title, author: book.author }) }
+    File.write('./json/books.json', JSON.dump(array))
+  end
+
+  def save_people
+    array = []
+    return if @people.empty?
+
+    @people.each do |person|
+      if person.respond_to?(:specialization)
+        array.push({ type: person.class, object_id: person, id: person.id, name: person.name, age: person.age,
+                     specialization: person.specialization })
+      else
+        array.push({ type: person.class, object_id: person, id: person.id, name: person.name, age: person.age,
+                     parent_permission: person.parent_permission })
+      end
+    end
+    File.write('./json/people.json', JSON.dump(array))
+  end
+
+  def save_rentals
+    array = []
+    return if @rentals.empty?
+
+    @rentals.each do |add|
+      array.push({ date: add.date, person: add.person, book: add.book })
+    end
+    File.write('./json/rentals.json', JSON.dump(array))
   end
 end
 

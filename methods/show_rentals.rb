@@ -1,5 +1,5 @@
-require_relative './rentals_memory'
-require_relative './people_memory'
+require_relative '../memory/rentals_memory'
+require_relative '../memory/people_memory'
 
 class DisplayRentals
   include RentalsMemory

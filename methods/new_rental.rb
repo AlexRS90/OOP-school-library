@@ -1,7 +1,7 @@
 require_relative '../rental'
-require_relative './rentals_memory'
-require_relative './books_memory'
-require_relative './people_memory'
+require_relative '../memory/rentals_memory'
+require_relative '../memory/books_memory'
+require_relative '../memory/people_memory'
 
 class AddRental
   include RentalsMemory
