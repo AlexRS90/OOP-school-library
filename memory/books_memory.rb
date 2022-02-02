@@ -9,9 +9,5 @@ module BooksMemory
   def show_books
     @@books
   end
-
-  def savedData(data)
-  @@books = data
-  end
 end
 # rubocop:enable Style/ClassVars

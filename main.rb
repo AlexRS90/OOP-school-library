@@ -7,7 +7,7 @@ require_relative './methods/new_rental'
 require_relative './methods/show_rentals'
 # Json library
 require 'json'
-#Load memory
+# Load memory
 require_relative './memory/load_data'
 require 'pry'
 
@@ -44,8 +44,8 @@ class App
     when 6
       @show_rentals.show
     else
-      saveBooks
-      savePeople
+      save_books
+      save_people
       puts "\nThanks for your visit, have a great day!"
       abort
     end
@@ -65,22 +65,28 @@ class App
     menu
   end
 
-  def saveBooks
+  def save_books
     array = []
-    if !@books.empty?
-      @books.each { |book| array.push({title: book.title, author: book.author}) }
-      File.write('./json/books.json', JSON.dump(array))
-    end
+    return if @books.empty?
+
+    @books.each { |book| array.push({ title: book.title, author: book.author }) }
+    File.write('./json/books.json', JSON.dump(array))
   end
 
-  def savePeople
+  def save_people
     array = []
-    if !@people.empty?
-      @people.each{ |person| binding.pry } 
-      # File.write('./json/people.json', JSON.dump(array))
-      #array.push({type: person.class, id: person.id, name: person.name, age: person.age})
-      
+    return if @people.empty?
+
+    @people.each do |person|
+      if person.respond_to?(:specialization)
+        array.push({ type: person.class, id: person.id, name: person.name, age: person.age,
+                     specialization: person.specialization })
+      else
+        array.push({ type: person.class, id: person.id, name: person.name, age: person.age,
+                     parent_permission: person.parent_permission })
+      end
     end
+    File.write('./json/people.json', JSON.dump(array))
   end
 end
 
