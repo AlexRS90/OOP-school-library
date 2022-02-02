@@ -4,7 +4,7 @@ class Person
   attr_accessor :name, :age, :rental
   attr_reader :id
 
-  def initialize(age, name = 'Unknown')
+  def initialize(age, id = 0, name = 'Unknown')
     @id = Random.rand(1..500)
     @name = name
     @age = age
