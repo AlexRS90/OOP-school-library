@@ -11,6 +11,7 @@ describe Person do
     it 'is person created?' do
         expect(@person).to have_attributes(age: 21)
         expect(@person).to have_attributes(name: 'Luis')
+        expect(@person).to have_attributes(id: 123)
     end
 
     it 'can use service?' do
