@@ -19,11 +19,6 @@ describe Student do
         expect(name).to eql 'Pedro Enrique'
     end
 
-    # it 'has classroom' do
-    #     expect(@student.class_room.label).to eql 'B15'
-    # end
-    
-
     it 'have permission?' do
         expect(@student.parent_permission).to be true
     end
