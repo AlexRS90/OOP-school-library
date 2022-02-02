@@ -33,11 +33,10 @@ module LoadData
       if data['type'] == 'Student'
         data['parent_permission']
         person = Student.new(data['age'], data['id'], data['name'], data['parent_permission'])
-        add_person(person)
       else
         person = Teacher.new(data['age'], data['id'], data['name'], data['specialization'])
-        add_person(person)
       end
+      add_person(person)
     end
   end
 end
